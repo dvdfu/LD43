@@ -7,6 +7,7 @@ public class SimpleAnimation : MonoBehaviour {
     [SerializeField] Sprite[] frames;
     [SerializeField] float frameDuration = 0.1f;
     [SerializeField] bool looping = true;
+    [SerializeField] bool destroyOnComplete = false;
 
     Tween tween;
     bool playing;
@@ -20,8 +21,12 @@ public class SimpleAnimation : MonoBehaviour {
                 spriteRenderer.sprite = frames[index];
             },
             () => {
-                playing = false;
-                onFinish();
+                if (destroyOnComplete) {
+                    Destroy(gameObject);
+                } else {
+                    playing = false;
+                    onFinish();
+                }
             }
         );
     }
