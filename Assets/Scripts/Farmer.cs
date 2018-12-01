@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Farmer : Movement {
+public class Farmer : Player {
 	[SerializeField] float attackHoldTheshold = 0.25f;
 	[SerializeField] float closeAttackDuration = 1f;
 	[SerializeField] float closeAttackOffset = 15f;

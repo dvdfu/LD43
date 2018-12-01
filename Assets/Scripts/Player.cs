@@ -10,12 +10,13 @@ public struct MovementBindings {
 	[SerializeField] public KeyCode down;
 }
 
-public abstract class Movement : MonoBehaviour {
-	[SerializeField] float speed = 100.0f;
+public abstract class Player : MonoBehaviour {
+	[SerializeField] protected float speed = 100.0f;
 	[SerializeField] MovementBindings movementBindings;
 
-	Rigidbody2D body;
-    SpriteRenderer spriteRenderer;
+	protected Rigidbody2D body;
+    protected SpriteRenderer spriteRenderer;
+    protected bool canMove;
 
 	public Vector2 GetMoveVector() {
 		Vector2 move = Vector2.zero;
@@ -29,14 +30,15 @@ public abstract class Movement : MonoBehaviour {
 	protected virtual void Awake() {
 		body = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        canMove = true;
 	}
 
 	protected virtual void FixedUpdate() {
-		Vector2 move = GetMoveVector();
-		move = move.normalized * Time.deltaTime * speed;
-		body.MovePosition(body.position + move);
-
-		if (Input.GetKey(movementBindings.left)) spriteRenderer.flipX = true;
-		if (Input.GetKey(movementBindings.right)) spriteRenderer.flipX = false;
+        if (canMove) {
+            Vector2 move = GetMoveVector().normalized * Time.deltaTime * speed;
+            body.MovePosition(body.position + move);
+            if (Input.GetKeyDown(movementBindings.left)) spriteRenderer.flipX = true;
+            if (Input.GetKeyDown(movementBindings.right)) spriteRenderer.flipX = false;
+        }
 	}
 }
