@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 58210143337188576}
   - component: {fileID: 114400656478666680}
   - component: {fileID: 114579113612219952}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AxePickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
