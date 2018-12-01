@@ -7,10 +7,10 @@ public class Timer {
 	float timeElapsed;
 	float initialValue;
 
-	public Timer(float startTime = 0f) {
+	public Timer(float startTime = 0f, bool isDone = false) {
 		isRunning = false;
 		countUp = startTime == 0;
-		timeElapsed = startTime;
+		timeElapsed = (isDone ? 0f : startTime);
 		initialValue = startTime;
 	}
 

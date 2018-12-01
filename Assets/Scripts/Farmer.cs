@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Farmer : Player {
 	[SerializeField] float attackHoldTheshold = 0.25f;
+    [SerializeField] float attackCooldown = 0.5f;
 
 	[SerializeField] KeyCode attackKey = KeyCode.RightShift;
 	[SerializeField] GameObject axeThrowPrefab;
@@ -11,24 +12,26 @@ public class Farmer : Player {
 
     bool hasAxe;
 	Vector2 previousDirection;
-	Timer timer;
+	Timer attackHoldTimer;
+    Timer attackCooldownTimer;
 
 	protected override void Awake() {
         base.Awake();
         hasAxe = true;
-		timer = new Timer();
+		attackHoldTimer = new Timer();
+        attackCooldownTimer = new Timer(attackCooldown, true);
 		previousDirection = Vector2.right;
 	}
 
 	void Update() {
 		Vector2 move = GetMoveVector();
+		attackHoldTimer.update(Time.deltaTime);
+        attackCooldownTimer.update(Time.deltaTime);
 
-		timer.update(Time.deltaTime);
-
-        if (hasAxe) {
-            if (Input.GetKeyDown(attackKey)) timer.start();
+        if (hasAxe && attackCooldownTimer.isDone()) {
+            if (Input.GetKeyDown(attackKey)) attackHoldTimer.start();
             if (Input.GetKeyUp(attackKey)) {
-                if (timer.stop() < attackHoldTheshold) {
+                if (attackHoldTimer.stop() < attackHoldTheshold) {
                     GameObject axeSwing = Instantiate(axeSwingPrefab, transform.position, Quaternion.identity);
                     axeSwing.GetComponent<AxeSwing>().Swing(transform.position, previousDirection);
                 } else {
@@ -36,9 +39,10 @@ public class Farmer : Player {
                     axeThrow.GetComponent<AxeThrow>().Throw(previousDirection);
                     hasAxe = false;
                 }
+
+                attackCooldownTimer.start();
             }
         }
-
 
 		if (move != Vector2.zero) previousDirection = move;
 	}
