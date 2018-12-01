@@ -37,8 +37,8 @@ public abstract class Player : MonoBehaviour {
         if (canMove) {
             Vector2 move = GetMoveVector().normalized * Time.deltaTime * speed;
             body.MovePosition(body.position + move);
-            if (Input.GetKeyDown(movementBindings.left)) spriteRenderer.flipX = true;
-            if (Input.GetKeyDown(movementBindings.right)) spriteRenderer.flipX = false;
+            if (Input.GetKey(movementBindings.left)) spriteRenderer.flipX = true;
+            if (Input.GetKey(movementBindings.right)) spriteRenderer.flipX = false;
         }
 	}
 }

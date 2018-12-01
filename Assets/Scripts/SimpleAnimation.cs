@@ -7,36 +7,49 @@ public class SimpleAnimation : MonoBehaviour {
     [SerializeField] Sprite[] frames;
     [SerializeField] float frameDuration = 0.1f;
     [SerializeField] bool looping = true;
-    [SerializeField] bool autoStart = true;
 
     Tween tween;
+    bool playing;
 
-    public void StartAnimation() {
+    public void PlayOnce(Tween.OnFinish onFinish) {
+        playing = true;
+        spriteRenderer.enabled = true;
+        tween.Start(frameDuration,
+            (float x) => {
+                int index = Mathf.FloorToInt(x * frames.Length);
+                spriteRenderer.sprite = frames[index];
+            },
+            () => {
+                playing = false;
+                onFinish();
+            }
+        );
+    }
+
+    public void PlayLoop() {
+        playing = true;
         spriteRenderer.enabled = true;
         tween.Start(frameDuration,
             (float x) => {
                 int index = Mathf.FloorToInt(x * frames.Length);
                 spriteRenderer.sprite = frames[index];
             }, () => {
-                if (looping) {
-                    StartAnimation();
-                } else {
-                    // spriteRenderer.enabled = false;
-                    Destroy(gameObject);
+                if (playing) {
+                    PlayLoop();
                 }
             }
         );
     }
 
-    void Awake() {
-        tween = new Tween(this);
+    public void Stop() {
+        tween.Stop();
+        playing = false;
     }
 
-    void Start() {
-        if (autoStart) {
-            StartAnimation();
-        } else {
-            spriteRenderer.enabled = false;
+    void Awake() {
+        tween = new Tween(this);
+        if (looping) {
+            PlayLoop();
         }
     }
 }

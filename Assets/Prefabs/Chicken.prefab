@@ -108,6 +108,7 @@ MonoBehaviour:
     up: 119
     down: 115
   attackKey: 304
+  idleSprite: {fileID: 21300000, guid: faaffdfd5b9064dcea1530f9a58636a6, type: 3}
 --- !u!212 &212242433313424328
 SpriteRenderer:
   m_ObjectHideFlags: 1

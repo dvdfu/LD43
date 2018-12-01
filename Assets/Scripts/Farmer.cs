@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Farmer : Player {
 	[SerializeField] float attackHoldTheshold = 0.25f;
-	[SerializeField] float closeAttackDuration = 1f;
-	[SerializeField] float closeAttackOffset = 15f;
 
 	[SerializeField] KeyCode attackKey = KeyCode.RightShift;
 	[SerializeField] GameObject axeThrowPrefab;
@@ -19,7 +17,7 @@ public class Farmer : Player {
         base.Awake();
         hasAxe = true;
 		timer = new Timer();
-		previousDirection = Vector2.zero;
+		previousDirection = Vector2.right;
 	}
 
 	void Update() {
