@@ -7,6 +7,8 @@ public class AxeThrow : MonoBehaviour {
     const float SPEED_START = 250;
     const float SPEED_END = 0;
 
+    [SerializeField] GameObject axePickupPrefab;
+
     float speed;
     Vector2 direction;
     Tween moveTween;
@@ -17,6 +19,7 @@ public class AxeThrow : MonoBehaviour {
         moveTween.Start(DURATION_SEC, (float progress) => {
             speed = Mathf.Lerp(SPEED_START, SPEED_END, progress);
         }, () => {
+            Instantiate(axePickupPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         });
     }
