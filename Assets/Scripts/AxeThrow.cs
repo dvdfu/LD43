@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AxeThrow : MonoBehaviour {
-    const float DURATION_SEC = 1.0f;
-    const float SPEED_START = 200;
+    const float DURATION_SEC = 0.8f;
+    const float SPEED_START = 250;
     const float SPEED_END = 0;
 
     float speed;

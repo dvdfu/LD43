@@ -27,7 +27,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1837294928089328
 GameObject:
   m_ObjectHideFlags: 0
@@ -41,7 +41,6 @@ GameObject:
   - component: {fileID: 58172178409622396}
   - component: {fileID: 114324784293587664}
   - component: {fileID: 114999080926817632}
-  - component: {fileID: 114521918908951540}
   - component: {fileID: 114548834758912526}
   m_Layer: 0
   m_Name: Farmer
@@ -150,26 +149,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 020898bdfb2ae4e3ea23c23f64f424f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 80
-  left: 276
-  right: 275
-  up: 273
-  down: 274
---- !u!114 &114521918908951540
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1837294928089328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae44e880f771a43f6ab666bbc7910fa0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackHoldTheshold: 0.05
-  closeAttackDuration: 0.25
-  weaponCollider: {fileID: 60551065039066292}
-  attackKey: 303
+  speed: 70
+  movementBindings:
+    left: 276
+    right: 275
+    up: 273
+    down: 274
 --- !u!114 &114548834758912526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -184,7 +169,12 @@ MonoBehaviour:
   attackHoldTheshold: 0.25
   closeAttackDuration: 0.25
   weaponCollider: {fileID: 60551065039066292}
-  attackKey: 44
+  movementBindings:
+    left: 276
+    right: 275
+    up: 273
+    down: 274
+  attackKey: 32
 --- !u!114 &114999080926817632
 MonoBehaviour:
   m_ObjectHideFlags: 1
