@@ -5,6 +5,8 @@ using UnityEngine;
 public class Farmer : Player {
 	[SerializeField] float attackHoldTheshold = 0.25f;
     [SerializeField] float attackCooldown = 0.5f;
+    [SerializeField] float axeSwingAttackDuration = 0.1f;
+    [SerializeField] float axeThrowSlowdown = 0.5f;
 
 	[SerializeField] KeyCode attackKey = KeyCode.RightShift;
 	[SerializeField] GameObject axeThrowPrefab;
@@ -28,16 +30,29 @@ public class Farmer : Player {
 		attackHoldTimer.update(Time.deltaTime);
         attackCooldownTimer.update(Time.deltaTime);
 
+        // Slow down movement while winding up axe throw
+        if (attackHoldTimer.isRunning && attackHoldTimer.timeElapsed >= attackHoldTheshold) {
+            speed = maxSpeed * axeThrowSlowdown;
+        }
+
         if (hasAxe && attackCooldownTimer.isDone()) {
             if (Input.GetKeyDown(attackKey)) attackHoldTimer.start();
             if (Input.GetKeyUp(attackKey)) {
                 if (attackHoldTimer.stop() < attackHoldTheshold) {
                     GameObject axeSwing = Instantiate(axeSwingPrefab, transform.position, Quaternion.identity);
                     axeSwing.GetComponent<AxeSwing>().Swing(transform.position, previousDirection);
+
+                    speed = 0f;
+                    Tween t = new Tween(this);
+                    t.Start(axeSwingAttackDuration, null, () => speed = maxSpeed);
                 } else {
                     GameObject axeThrow = Instantiate(axeThrowPrefab, transform.position, Quaternion.identity);
                     axeThrow.GetComponent<AxeThrow>().Throw(previousDirection);
                     hasAxe = false;
+
+                    speed = maxSpeed * axeThrowSlowdown;
+                    Tween t = new Tween(this);
+                    t.Start(axeSwingAttackDuration, null, () => speed = maxSpeed);
                 }
 
                 attackCooldownTimer.start();

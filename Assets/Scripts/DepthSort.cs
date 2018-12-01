@@ -10,6 +10,9 @@ public class DepthSort : MonoBehaviour {
     }
 
     void Update() {
-        sprite.sortingOrder = Mathf.FloorToInt(-transform.position.y);
+        if (transform.hasChanged) {
+            sprite.sortingOrder = Mathf.FloorToInt(-transform.position.y);
+            transform.hasChanged = false;
+        }
     }
 }

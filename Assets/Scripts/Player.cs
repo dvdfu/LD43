@@ -11,12 +11,17 @@ public struct MovementBindings {
 }
 
 public abstract class Player : MonoBehaviour {
-	[SerializeField] protected float speed = 100.0f;
+	[SerializeField] protected const float maxSpeed = 100.0f;
 	[SerializeField] MovementBindings movementBindings;
 
 	protected Rigidbody2D body;
     protected SpriteRenderer spriteRenderer;
     protected bool canMove;
+	protected float speed;
+
+	void Start() {
+		speed = maxSpeed;
+	}
 
 	public Vector2 GetMoveVector() {
 		Vector2 move = Vector2.zero;

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 
 public class Timer {
-	bool isRunning;
+	public bool isRunning { get; private set; }
+	public float timeElapsed { get; private set; }
 	bool countUp;
-	float timeElapsed;
 	float initialValue;
 
 	public Timer(float startTime = 0f, bool isDone = false) {

@@ -28,10 +28,10 @@ public class Tween {
     IEnumerator Animate(float duration, OnUpdate onUpdate, OnFinish onFinish) {
         float t = 0;
         while (t < duration) {
-            onUpdate(t / duration);
+            if (onUpdate != null) onUpdate(t / duration);
             t += Time.deltaTime;
             yield return null;
         }
-        onFinish();
+        if (onFinish != null) onFinish();
     }
 }
