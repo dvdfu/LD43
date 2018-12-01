@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attack : MonoBehaviour {
+public class Farmer : Movement {
 	[SerializeField] float attackHoldTheshold = 0.25f;
 	[SerializeField] float closeAttackDuration = 1f;
 	[SerializeField] float closeAttackOffset = 15f;
 
-	[SerializeField] MovementBindings movementBindings;
 	[SerializeField] KeyCode attackKey = KeyCode.RightShift;
 	[SerializeField] GameObject axeThrowPrefab;
     [SerializeField] GameObject axeSwingPrefab;
@@ -15,17 +14,16 @@ public class Attack : MonoBehaviour {
     bool hasAxe;
 	Vector2 previousDirection;
 	Timer timer;
-	Timer closeAttackTimer;
 
-	void Start() {
+	protected override void Awake() {
+        base.Awake();
         hasAxe = true;
 		timer = new Timer();
-		closeAttackTimer = new Timer(closeAttackDuration);
 		previousDirection = Vector2.zero;
 	}
 
 	void Update() {
-		Vector2 move = Util.GetMovementVector(movementBindings);
+		Vector2 move = GetMoveVector();
 
 		timer.update(Time.deltaTime);
 

@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 212438996797787388}
   - component: {fileID: 50272634346756524}
   - component: {fileID: 58172178409622396}
-  - component: {fileID: 114324784293587664}
   - component: {fileID: 114999080926817632}
   - component: {fileID: 114548834758912526}
   m_Layer: 0
@@ -80,23 +79,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 9
---- !u!114 &114324784293587664
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1837294928089328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 020898bdfb2ae4e3ea23c23f64f424f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 70
-  movementBindings:
-    left: 276
-    right: 275
-    up: 273
-    down: 274
 --- !u!114 &114548834758912526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -108,14 +90,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae44e880f771a43f6ab666bbc7910fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackHoldTheshold: 0.25
-  closeAttackDuration: 0.25
-  closeAttackOffset: 15
+  speed: 100
   movementBindings:
     left: 276
     right: 275
     up: 273
     down: 274
+  attackHoldTheshold: 0.25
+  closeAttackDuration: 0.25
+  closeAttackOffset: 15
   attackKey: 32
   axeThrowPrefab: {fileID: 1799436597243516, guid: ffb42cf49d0ca48f8b7e6c4bf0d0f8a0,
     type: 2}

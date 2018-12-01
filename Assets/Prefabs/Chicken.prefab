@@ -22,9 +22,8 @@ GameObject:
   - component: {fileID: 212242433313424328}
   - component: {fileID: 58266712319898436}
   - component: {fileID: 50580780801830710}
-  - component: {fileID: 114445850404285998}
   - component: {fileID: 114816339995853158}
-  - component: {fileID: 114980635504310784}
+  - component: {fileID: 114980845354898006}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Untagged
@@ -80,23 +79,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 6
---- !u!114 &114445850404285998
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1203129002099634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 020898bdfb2ae4e3ea23c23f64f424f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 100
-  movementBindings:
-    left: 97
-    right: 100
-    up: 119
-    down: 115
 --- !u!114 &114816339995853158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -108,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea37290086846425e95747ae4685257e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114980635504310784
+--- !u!114 &114980845354898006
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,9 +98,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1203129002099634}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea37290086846425e95747ae4685257e, type: 3}
+  m_Script: {fileID: 11500000, guid: f4a4c3bec31b541b3b38b7cdd6fbcdd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 100
+  movementBindings:
+    left: 97
+    right: 100
+    up: 119
+    down: 115
+  attackKey: 304
 --- !u!212 &212242433313424328
 SpriteRenderer:
   m_ObjectHideFlags: 1

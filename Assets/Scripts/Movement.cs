@@ -10,20 +10,29 @@ public struct MovementBindings {
 	[SerializeField] public KeyCode down;
 }
 
-public class Movement : MonoBehaviour {
+public abstract class Movement : MonoBehaviour {
 	[SerializeField] float speed = 100.0f;
 	[SerializeField] MovementBindings movementBindings;
 
 	Rigidbody2D body;
     SpriteRenderer spriteRenderer;
 
-	void Start () {
+	public Vector2 GetMoveVector() {
+		Vector2 move = Vector2.zero;
+		if (Input.GetKey(movementBindings.left)) move.x--;
+		if (Input.GetKey(movementBindings.right)) move.x++;
+		if (Input.GetKey(movementBindings.up)) move.y++;
+		if (Input.GetKey(movementBindings.down)) move.y--;
+		return move;
+	}
+
+	protected virtual void Awake() {
 		body = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 
-	void FixedUpdate () {
-		Vector2 move = Util.GetMovementVector(movementBindings);
+	protected virtual void FixedUpdate() {
+		Vector2 move = GetMoveVector();
 		move = move.normalized * Time.deltaTime * speed;
 		body.MovePosition(body.position + move);
 
