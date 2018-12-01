@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4650211565091870}
   - component: {fileID: 212242433313424328}
   - component: {fileID: 61698151361301882}
+  - component: {fileID: 114811031976603504}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Untagged
@@ -66,6 +67,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 20, y: 20}
   m_EdgeRadius: 0
+--- !u!114 &114811031976603504
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1203129002099634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3049e84b025b4f1cab2dd641ba2b17a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212242433313424328
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -98,10 +110,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 557554405
+  m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c80bb96701c7c4a848b64d56fd364e0d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: faaffdfd5b9064dcea1530f9a58636a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
