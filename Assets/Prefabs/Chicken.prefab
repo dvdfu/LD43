@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4650211565091870}
   - component: {fileID: 212242433313424328}
-  - component: {fileID: 114811031976603504}
   - component: {fileID: 58266712319898436}
   - component: {fileID: 50580780801830710}
+  - component: {fileID: 114445850404285998}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Untagged
@@ -78,7 +78,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 6
---- !u!114 &114811031976603504
+--- !u!114 &114445850404285998
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,9 +86,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1203129002099634}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3049e84b025b4f1cab2dd641ba2b17a, type: 3}
+  m_Script: {fileID: 11500000, guid: 020898bdfb2ae4e3ea23c23f64f424f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 100
+  left: 97
+  right: 100
+  up: 119
+  down: 115
 --- !u!212 &212242433313424328
 SpriteRenderer:
   m_ObjectHideFlags: 1
