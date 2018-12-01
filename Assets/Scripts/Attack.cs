@@ -5,6 +5,7 @@ using UnityEngine;
 public class Attack : MonoBehaviour {
 	[SerializeField] float attackHoldTheshold = 0.25f;
 	[SerializeField] float closeAttackDuration = 1f;
+	[SerializeField] float closeAttackOffset = 15f;
 	[SerializeField] Collider2D weaponCollider;
 	[SerializeField] MovementBindings movementBindings;
 	[SerializeField] KeyCode attackKey = KeyCode.RightShift;
@@ -26,8 +27,9 @@ public class Attack : MonoBehaviour {
 
 	void Update () {
 		Vector2 move = Util.GetMovementVector(movementBindings);
-		Debug.Log(previousDirection);
 		weaponCollider.transform.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.right, previousDirection));
+		weaponCollider.transform.position = gameObject.transform.position
+			+ (new Vector3(previousDirection.x, previousDirection.y, 0f).normalized * closeAttackOffset);
 
 		timer.update(Time.deltaTime);
 
