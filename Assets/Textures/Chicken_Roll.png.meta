@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 9d742de3345734548bb30e670d7195b0
+guid: 5132474540828448391b6c261bddc5dc
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Axe_Swing_0
-    21300002: Axe_Swing_1
-    21300004: Axe_Swing_2
-    21300006: Axe_Swing_3
+    21300000: Chicken_Roll_0
+    21300002: Chicken_Roll_1
+    21300004: Chicken_Roll_2
+    21300006: Chicken_Roll_3
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -99,13 +99,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Axe_Swing_0
+      name: Chicken_Roll_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 24
-        height: 24
+        width: 20
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -113,19 +113,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa3b9c68fa7aa47ef919ff0c2bb9bc9f
+      spriteID: c680e86dbdece463896eaabc69324575
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Axe_Swing_1
+      name: Chicken_Roll_1
       rect:
         serializedVersion: 2
-        x: 24
+        x: 20
         y: 0
-        width: 24
-        height: 24
+        width: 20
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,19 +133,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0bfcac95f24b45779df2d6a7c9c6bf9
+      spriteID: ddecfd519fc7e419c91150fe080c1ca1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Axe_Swing_2
+      name: Chicken_Roll_2
       rect:
         serializedVersion: 2
-        x: 48
+        x: 40
         y: 0
-        width: 24
-        height: 24
+        width: 20
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,19 +153,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 837df324cc1ef48b1a8f3cef603bd063
+      spriteID: d9dc52e35a9864825bb617a58b31417f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Axe_Swing_3
+      name: Chicken_Roll_3
       rect:
         serializedVersion: 2
-        x: 72
+        x: 60
         y: 0
-        width: 24
-        height: 24
+        width: 20
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,7 +173,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95d05333ddc3e4c3cafb8583f7d21d0e
+      spriteID: 94921b58a398f4743b147828620fffd3
       vertices: []
       indices: 
       edges: []
@@ -181,7 +181,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 076a73a1044c54e82900ee70f17b31d8
+    spriteID: 919b0a1daf84a40488da0353c4c2d0be
     vertices: []
     indices: 
     edges: []
