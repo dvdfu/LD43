@@ -10,15 +10,23 @@ public class Movement : MonoBehaviour {
 	[SerializeField] KeyCode down;
 	
 	Rigidbody2D body;
+    SpriteRenderer spriteRenderer;
 
 	void Start () {
 		body = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 	
 	void FixedUpdate () {
 		Vector2 move = Vector2.zero;
-		if (Input.GetKey(left)) move.x--;
-		if (Input.GetKey(right)) move.x++;
+		if (Input.GetKey(left)) {
+            move.x--;
+            spriteRenderer.flipX = true;
+        }
+		if (Input.GetKey(right)) {
+            move.x++;
+            spriteRenderer.flipX = false;
+        }
 		if (Input.GetKey(up)) move.y++;
 		if (Input.GetKey(down)) move.y--;
 
