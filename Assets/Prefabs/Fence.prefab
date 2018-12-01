@@ -37,9 +37,9 @@ GameObject:
   - component: {fileID: 212284121093735252}
   - component: {fileID: 68968560492258030}
   - component: {fileID: 50323621557166362}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Left
-  m_TagString: Fence
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56,9 +56,9 @@ GameObject:
   - component: {fileID: 68726121406107984}
   - component: {fileID: 50865403456601718}
   - component: {fileID: 114569200340839904}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bottom
-  m_TagString: Fence
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,9 +75,9 @@ GameObject:
   - component: {fileID: 68547490922609422}
   - component: {fileID: 50274750936436846}
   - component: {fileID: 114069101297138464}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Top
-  m_TagString: Fence
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,9 +93,9 @@ GameObject:
   - component: {fileID: 212142452730932768}
   - component: {fileID: 68568685844944438}
   - component: {fileID: 50844838186663680}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Right
-  m_TagString: Fence
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -281,8 +281,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 0, y: 85}
-  - {x: 0, y: -85}
+  - {x: 0, y: 105}
+  - {x: 0, y: -105}
 --- !u!68 &68726121406107984
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -315,8 +315,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 0, y: 85}
-  - {x: 0, y: -85}
+  - {x: 0, y: 105}
+  - {x: 0, y: -105}
 --- !u!114 &114069101297138464
 MonoBehaviour:
   m_ObjectHideFlags: 1
