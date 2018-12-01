@@ -2,21 +2,26 @@
 using System.Collections.Generic;
 
 public class Timer {
-	bool countUp = true;
+	bool isRunning;
+	bool countUp;
 	float timeElapsed;
 	float initialValue;
 
 	public Timer(float startTime = 0f) {
-		timeElapsed = startTime;
+		isRunning = false;
 		countUp = startTime == 0;
+		timeElapsed = startTime;
 		initialValue = startTime;
 	}
 
 	public void start() {
-		// Calling this function makes you feel good
+		reset();
+		isRunning = true;
 	}
 
 	public void update(float dt) {
+		if (!isRunning) return;
+
 		if (countUp) timeElapsed += dt;
 		else timeElapsed -= dt;
 	}
@@ -28,6 +33,7 @@ public class Timer {
 
 	public void reset() {
 		timeElapsed = initialValue;
+		isRunning = false;
 	}
 
 	public float stop() {

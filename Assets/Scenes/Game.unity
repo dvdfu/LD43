@@ -437,6 +437,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114548834758912526, guid: 69ea3417706f345ce9b7af6a77d8de47,
+        type: 2}
+      propertyPath: attackHoldTheshold
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69ea3417706f345ce9b7af6a77d8de47, type: 2}
   m_IsPrefabAsset: 0

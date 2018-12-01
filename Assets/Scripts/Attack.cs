@@ -14,25 +14,30 @@ public class Attack : MonoBehaviour {
 	Coroutine attackCoroutine;
 
 	void Start() {
-		timer = new Timer(closeAttackDuration);
+		timer = new Timer();
 		closeAttackTimer = new Timer(closeAttackDuration);
+		weaponCollider.gameObject.SetActive(false);
 	}
 
 	void Update () {
 		timer.update(Time.deltaTime);
 
+		if (Input.GetKeyDown(attackKey)) timer.start();
 		if (Input.GetKeyUp(attackKey) && timer.stop() < attackHoldTheshold && attackCoroutine == null) {
 			attackCoroutine = StartCoroutine(closeAttack());
 		}
 	}
 
 	IEnumerator closeAttack() {
-		closeAttackTimer.reset();
+		closeAttackTimer.start();
+
+		weaponCollider.gameObject.SetActive(true);
 		while(!closeAttackTimer.isDone()) {
 			yield return null;
 			closeAttackTimer.update(Time.deltaTime);
 		}
 
+		weaponCollider.gameObject.SetActive(false);
 		attackCoroutine = null;
 	}
 }
