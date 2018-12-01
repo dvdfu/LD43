@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AxeThrow : MonoBehaviour {
-    const float DURATION_SEC = 0.8f;
+    const float DURATION_SEC = 0.6f;
     const float SPEED_START = 250;
     const float SPEED_END = 0;
 
     float speed;
-    float angle;
+    Vector2 direction;
     Tween moveTween;
 
-    public void Throw(float angle) {
+    public void Throw(Vector2 direction) {
         speed = SPEED_START;
-        this.angle = angle;
+        this.direction = direction.normalized;
         moveTween.Start(DURATION_SEC, (float progress) => {
             speed = Mathf.Lerp(SPEED_START, SPEED_END, progress);
         }, () => {
@@ -27,7 +27,7 @@ public class AxeThrow : MonoBehaviour {
 
     void FixedUpdate() {
         if (gameObject.activeSelf) {
-            Vector2 delta = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * speed * Time.deltaTime;
+            Vector2 delta = direction * speed * Time.deltaTime;
             transform.position = transform.position + (Vector3) delta;
         }
     }

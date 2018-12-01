@@ -21,7 +21,8 @@ public class SimpleAnimation : MonoBehaviour {
                 if (looping) {
                     StartAnimation();
                 } else {
-                    spriteRenderer.enabled = false;
+                    // spriteRenderer.enabled = false;
+                    Destroy(gameObject);
                 }
             }
         );
