@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 723500f46b5a54510b112ddf48950fad, type: 3}
   m_Name: Player1Data
   m_EditorClassIdentifier: 
+  id: 0
   movementBindings:
     left: 97
     right: 100
@@ -18,3 +19,6 @@ MonoBehaviour:
     down: 115
   attackBindings:
     attack: 304
+  attackCooldown: 0.5
+  axeThrowSlowdown: 0.5
+  stunDuration: 0.8
