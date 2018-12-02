@@ -164,9 +164,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 9e6174ca95a7a4730bad8055662a7414, type: 2}
-  id: 0
-  attackCooldown: 0.5
-  axeThrowSlowdown: 0.5
+  p1Sprite: {fileID: 21300000, guid: dbf568c237e6041cd87e846464b9a496, type: 3}
+  p2Sprite: {fileID: 21300000, guid: 438ce48f66e294cc298a077e3a0e8825, type: 3}
   axeThrowPrefab: {fileID: 1799436597243516, guid: ffb42cf49d0ca48f8b7e6c4bf0d0f8a0,
     type: 2}
   axeSwingPrefab: {fileID: 1647875024744838, guid: e18004028019d4d3b9508b5aa7c9ae26,

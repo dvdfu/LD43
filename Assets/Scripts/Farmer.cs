@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Farmer : Player {
+    [SerializeField] Sprite p1Sprite;
+    [SerializeField] Sprite p2Sprite;
+
 	[SerializeField] GameObject axeThrowPrefab;
     [SerializeField] GameObject axeSwingPrefab;
     [SerializeField] SpriteRenderer axeCarry;
@@ -19,6 +22,15 @@ public class Farmer : Player {
         isStunned = false;
 		previousDirection = Vector2.right;
         stunTween = new Tween(this);
+
+        switch (playerData.id) {
+            case Score.PlayerID.P1:
+            spriteRenderer.sprite = p1Sprite;
+            break;
+            case Score.PlayerID.P2:
+            spriteRenderer.sprite = p2Sprite;
+            break;
+        }
 	}
 
 	void Update() {
