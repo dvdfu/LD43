@@ -19,6 +19,15 @@ public class GameManager : MonoBehaviour {
 
 	void Start() {
 		SpawnChicken();
+		SpawnChicken();
+		SpawnChicken();
+		SpawnChicken();
+		SpawnChicken();
+		SpawnChicken();
+		SpawnChicken();
+		SpawnChicken();
+		SpawnChicken();
+		SpawnChicken();
 	}
 
 	public void SpawnChicken() {

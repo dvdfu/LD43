@@ -93,12 +93,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 212242433313424328}
   frames:
-  - {fileID: 21300000, guid: 5132474540828448391b6c261bddc5dc, type: 3}
-  - {fileID: 21300002, guid: 5132474540828448391b6c261bddc5dc, type: 3}
-  - {fileID: 21300004, guid: 5132474540828448391b6c261bddc5dc, type: 3}
-  - {fileID: 21300006, guid: 5132474540828448391b6c261bddc5dc, type: 3}
-  frameDuration: 0.1
-  looping: 0
+  - {fileID: 21300000, guid: faaffdfd5b9064dcea1530f9a58636a6, type: 3}
+  - {fileID: 21300002, guid: faaffdfd5b9064dcea1530f9a58636a6, type: 3}
+  - {fileID: 21300004, guid: faaffdfd5b9064dcea1530f9a58636a6, type: 3}
+  - {fileID: 21300006, guid: faaffdfd5b9064dcea1530f9a58636a6, type: 3}
+  frameDuration: 0.3
+  looping: 1
   destroyOnComplete: 0
 --- !u!114 &114816339995853158
 MonoBehaviour:
@@ -165,7 +165,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 20, y: 20}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
