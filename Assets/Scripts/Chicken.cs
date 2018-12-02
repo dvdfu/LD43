@@ -54,7 +54,6 @@ public class Chicken : Player {
 
     void Respawn() {
         transform.position = Vector3.zero;
-        Debug.Log("bruv");
     }
 
     void OnCollisionEnter2D(Collision2D col) {
