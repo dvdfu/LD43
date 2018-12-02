@@ -8,11 +8,13 @@ public class Chicken : MonoBehaviour {
     [SerializeField] GameObject drumstickPrefab;
     [SerializeField] GameObject poofPrefab;
 
+    SpriteRenderer spriteRenderer;
     Rigidbody2D body;
     Vector2 dir;
 
     void Start() {
         body = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         dir = Vector2.zero;
     }
 
@@ -23,6 +25,8 @@ public class Chicken : MonoBehaviour {
 
     void Update() {
         dir = moveAwayFromPlayers();
+        if (body.velocity.x > 0.1f) spriteRenderer.flipX = false;
+        if (body.velocity.x < -0.1f) spriteRenderer.flipX = true;
     }
 
     Vector2 moveAwayFromPlayers() {

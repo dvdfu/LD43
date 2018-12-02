@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Farmer : Player {
-    const float STUN_DURATION = 0.8f;
+    const float STUN_DURATION = 0.3f;
 
     [SerializeField] Score.PlayerID id;
     [SerializeField] float attackCooldown = 0.5f;
