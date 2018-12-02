@@ -133,15 +133,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae44e880f771a43f6ab666bbc7910fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementBindings:
-    left: 97
-    right: 100
-    up: 119
-    down: 115
+  playerData: {fileID: 11400000, guid: 9e6174ca95a7a4730bad8055662a7414, type: 2}
   id: 0
   attackCooldown: 0.5
   axeThrowSlowdown: 0.5
-  attackKey: 304
   axeThrowPrefab: {fileID: 1799436597243516, guid: ffb42cf49d0ca48f8b7e6c4bf0d0f8a0,
     type: 2}
   axeSwingPrefab: {fileID: 1647875024744838, guid: e18004028019d4d3b9508b5aa7c9ae26,
