@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Farmer : Player {
-    [SerializeField] Score score;
     [SerializeField] Score.PlayerID id;
     [SerializeField] float attackHoldTheshold = 0.25f;
     [SerializeField] float attackCooldown = 0.5f;
@@ -41,7 +40,6 @@ public class Farmer : Player {
             if (Input.GetKeyDown(attackKey)) attackHoldTimer.start();
             if (Input.GetKeyUp(attackKey)) {
                 if (attackHoldTimer.stop() < attackHoldTheshold) {
-                    score.CollectPoint(id);
                     GameObject axeSwing = Instantiate(axeSwingPrefab, transform.position, Quaternion.identity);
                     axeSwing.GetComponent<AxeSwing>().Swing(transform.position, previousDirection);
 
@@ -50,7 +48,7 @@ public class Farmer : Player {
                     t.Start(axeSwingAttackDuration, null, () => speed = maxSpeed);
                 } else {
                     GameObject axeThrow = Instantiate(axeThrowPrefab, transform.position, Quaternion.identity);
-                    axeThrow.GetComponent<AxeThrow>().Throw(previousDirection);
+                    axeThrow.GetComponent<AxeThrow>().Throw(id, previousDirection);
                     hasAxe = false;
 
                     speed = maxSpeed * axeThrowSlowdown;
@@ -65,11 +63,12 @@ public class Farmer : Player {
 		if (move != Vector2.zero) previousDirection = move;
 	}
 
-    void OnTriggerEnter2D(Collider2D other) {
+    void OnTriggerStay2D(Collider2D other) {
         if (other.gameObject.tag == "AxePickup" && !hasAxe) {
             hasAxe = true;
             Destroy(other.gameObject);
         } else if (other.gameObject.tag == "Drumstick") {
+            Score.instance.CollectPoint(id);
             Destroy(other.gameObject);
         }
     }

@@ -9,11 +9,13 @@ public class AxeThrow : MonoBehaviour {
 
     [SerializeField] GameObject axePickupPrefab;
 
+    Score.PlayerID id;
     float speed;
     Vector2 direction;
     Tween moveTween;
 
-    public void Throw(Vector2 direction) {
+    public void Throw(Score.PlayerID id, Vector2 direction) {
+        this.id = id;
         speed = SPEED_START;
         this.direction = direction.normalized;
         moveTween.Start(DURATION_SEC, (float progress) => {
@@ -22,6 +24,10 @@ public class AxeThrow : MonoBehaviour {
             Instantiate(axePickupPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         });
+    }
+
+    public Score.PlayerID GetID() {
+        return id;
     }
 
     void Awake() {

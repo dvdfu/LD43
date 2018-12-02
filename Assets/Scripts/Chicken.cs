@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Chicken : MonoBehaviour {
     [SerializeField] GameObject drumstickPrefab;
+    [SerializeField] GameObject poofPrefab;
 
     Rigidbody2D body;
 
@@ -20,9 +21,13 @@ public class Chicken : MonoBehaviour {
     }
 
     void Die() {
-        Instantiate(drumstickPrefab, transform.position, transform.rotation);
+        Vector3 position = transform.position;
+        GameObject poof = Instantiate(poofPrefab, position, Quaternion.identity);
+        poof.GetComponent<SimpleAnimation>().PlayOnce(() => {
+            Instantiate(drumstickPrefab, position, Quaternion.identity);
+            GameManager.Instance.SpawnChicken();
+        });
         Destroy(gameObject);
-        GameManager.Instance.SpawnChicken();
     }
 
     void OnCollisionEnter2D(Collision2D col) {

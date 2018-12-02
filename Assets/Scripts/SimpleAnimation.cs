@@ -21,11 +21,10 @@ public class SimpleAnimation : MonoBehaviour {
                 spriteRenderer.sprite = frames[index];
             },
             () => {
+                playing = false;
+                onFinish();
                 if (destroyOnComplete) {
                     Destroy(gameObject);
-                } else {
-                    playing = false;
-                    onFinish();
                 }
             }
         );

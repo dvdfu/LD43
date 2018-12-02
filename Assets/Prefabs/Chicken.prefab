@@ -124,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drumstickPrefab: {fileID: 1404452035809488, guid: 9b64c32fdf2334f7b852283584aa1934,
     type: 2}
+  poofPrefab: {fileID: 1411509009375262, guid: fcc2ed03f06b44436b0cde708387440e, type: 2}
 --- !u!212 &212242433313424328
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Score : MonoBehaviour {
+    public static Score instance;
     public enum PlayerID { P1, P2 };
     const uint WINNING_SCORE = 12;
 
@@ -13,8 +14,10 @@ public class Score : MonoBehaviour {
 
     uint player1Score;
     uint player2Score;
+    bool gameOver;
 
     public void CollectPoint(PlayerID player) {
+        if (gameOver) return;
         switch (player) {
             case PlayerID.P1:
                 player1Score++;
@@ -34,13 +37,18 @@ public class Score : MonoBehaviour {
     }
 
     public void DeclareWinner(PlayerID player) {
+        if (gameOver) return;
         uiWinner.text = player.ToString() + " won the game!";
         uiWinner.gameObject.SetActive(true);
     }
 
     void Awake() {
+        if (instance == null) {
+            instance = this;
+        }
         player1Score = 0;
         player2Score = 0;
+        gameOver = false;
         uiPlayer1Score.text = "0";
         uiPlayer2Score.text = "0";
         uiWinner.gameObject.SetActive(false);
