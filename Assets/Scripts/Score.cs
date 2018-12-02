@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour {
     public static Score instance;
     public enum PlayerID { P1, P2 };
-    const uint WINNING_SCORE = 12;
+    const uint WINNING_SCORE = 30;
 
     [SerializeField] Text uiPlayer1Score;
     [SerializeField] Text uiPlayer2Score;

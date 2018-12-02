@@ -37,7 +37,7 @@ public class Chicken : MonoBehaviour {
         foreach (GameObject player in players) {
             Vector2 pPos = player.transform.position;
             float dist = Vector2.Distance(pos, pPos);
-            if (dist < 45) dir += (pos - pPos) * (6000f / dist / dist);
+            if (dist < 80) dir += (pos - pPos) * (6000f / dist / dist);
         }
 
         return dir;

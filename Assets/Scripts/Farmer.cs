@@ -11,30 +11,22 @@ public class Farmer : Player {
     bool hasAxe;
     bool isStunned;
 	Vector2 previousDirection;
-    Timer attackCooldownTimer;
     Tween stunTween;
 
 	protected override void Awake() {
         base.Awake();
         hasAxe = true;
         isStunned = false;
-        attackCooldownTimer = new Timer(playerData.attackCooldown, true);
 		previousDirection = Vector2.right;
         stunTween = new Tween(this);
 	}
 
 	void Update() {
-        attackCooldownTimer.update(Time.deltaTime);
         if (hasAxe && !isStunned) {
             if (Input.GetKeyDown(playerData.attackBindings.attack)) {
-                if (attackCooldownTimer.isDone()) {
-                    speed = maxSpeed * playerData.axeThrowSlowdown;
-                }
-            } else if (Input.GetKeyUp(playerData.attackBindings.attack)) {
                 speed = maxSpeed;
                 hasAxe = false;
                 axeCarry.enabled = false;
-                attackCooldownTimer.start();
                 GameObject axeThrow = Instantiate(axeThrowPrefab, transform.position, Quaternion.identity);
                 axeThrow.GetComponent<AxeThrow>().Throw(playerData.id, previousDirection);
                 Physics2D.IgnoreCollision(
