@@ -9,6 +9,7 @@ TagManager:
   - Drumstick
   - AxePickup
   - Apple
+  - Chicken
   layers:
   - Default
   - TransparentFX
@@ -45,6 +46,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 119150331
     locked: 0
   - name: Objects
     uniqueID: 557554405
