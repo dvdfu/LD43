@@ -8,6 +8,7 @@ TagManager:
   - Weapon
   - Drumstick
   - AxePickup
+  - Apple
   layers:
   - Default
   - TransparentFX
