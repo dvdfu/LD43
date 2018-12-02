@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AxeThrow : MonoBehaviour {
-    const float DURATION_SEC = 0.6f;
-    const float SPEED_START = 360;
+    const float DURATION_SEC = 0.4f;
+    const float SPEED_START = 400;
     const float SPEED_END = 0;
 
     [SerializeField] GameObject axePickupPrefab;
@@ -28,6 +28,10 @@ public class AxeThrow : MonoBehaviour {
 
     public Score.PlayerID GetID() {
         return id;
+    }
+
+    public Vector2 GetDirection() {
+        return direction;
     }
 
     void Awake() {

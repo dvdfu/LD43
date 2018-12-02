@@ -38,6 +38,7 @@ public class Score : MonoBehaviour {
 
     public void DeclareWinner(PlayerID player) {
         if (gameOver) return;
+        gameOver = true;
         uiWinner.text = player.ToString() + " won the game!";
         uiWinner.gameObject.SetActive(true);
     }

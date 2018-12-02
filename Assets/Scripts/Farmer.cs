@@ -15,51 +15,31 @@ public class Farmer : Player {
 
     bool hasAxe;
 	Vector2 previousDirection;
-	Timer attackHoldTimer;
     Timer attackCooldownTimer;
 
 	protected override void Awake() {
         base.Awake();
         hasAxe = true;
-		attackHoldTimer = new Timer();
         attackCooldownTimer = new Timer(attackCooldown, true);
 		previousDirection = Vector2.right;
 	}
 
 	void Update() {
-		Vector2 move = GetMoveVector();
-		attackHoldTimer.update(Time.deltaTime);
-        attackCooldownTimer.update(Time.deltaTime);
-
-        // Slow down movement while winding up axe throw
-        if (attackHoldTimer.isRunning && attackHoldTimer.timeElapsed >= attackHoldTheshold) {
-            speed = maxSpeed * axeThrowSlowdown;
-        }
-
-        if (hasAxe && attackCooldownTimer.isDone()) {
-            if (Input.GetKeyDown(attackKey)) attackHoldTimer.start();
-            if (Input.GetKeyUp(attackKey)) {
-                if (attackHoldTimer.stop() < attackHoldTheshold) {
-                    GameObject axeSwing = Instantiate(axeSwingPrefab, transform.position, Quaternion.identity);
-                    axeSwing.GetComponent<AxeSwing>().Swing(transform.position, previousDirection);
-
-                    speed = 0f;
-                    Tween t = new Tween(this);
-                    t.Start(axeSwingAttackDuration, null, () => speed = maxSpeed);
-                } else {
-                    GameObject axeThrow = Instantiate(axeThrowPrefab, transform.position, Quaternion.identity);
-                    axeThrow.GetComponent<AxeThrow>().Throw(id, previousDirection);
-                    hasAxe = false;
-
+        if (hasAxe) {
+            if (Input.GetKeyDown(attackKey)) {
+                if (attackCooldownTimer.isDone()) {
                     speed = maxSpeed * axeThrowSlowdown;
-                    Tween t = new Tween(this);
-                    t.Start(axeSwingAttackDuration, null, () => speed = maxSpeed);
                 }
-
+            } else if (Input.GetKeyUp(attackKey)) {
+                speed = maxSpeed;
+                hasAxe = false;
                 attackCooldownTimer.start();
+                GameObject axeThrow = Instantiate(axeThrowPrefab, transform.position, Quaternion.identity);
+                axeThrow.GetComponent<AxeThrow>().Throw(id, previousDirection);
             }
         }
-
+        
+		Vector2 move = GetMoveVector();
 		if (move != Vector2.zero) previousDirection = move;
 	}
 

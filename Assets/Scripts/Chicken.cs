@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Chicken : MonoBehaviour {
+    const float NUDGE_FORCE = 50;
+
     [SerializeField] GameObject drumstickPrefab;
     [SerializeField] GameObject poofPrefab;
 
@@ -20,17 +22,20 @@ public class Chicken : MonoBehaviour {
 
     }
 
-    void Die() {
+    void Die(Vector2 direction) {
         Vector3 position = transform.position;
         GameObject poof = Instantiate(poofPrefab, position, Quaternion.identity);
         poof.GetComponent<SimpleAnimation>().PlayOnce(() => {
-            Instantiate(drumstickPrefab, position, Quaternion.identity);
+            GameObject drumstick = Instantiate(drumstickPrefab, position, Quaternion.identity);
+            drumstick.GetComponent<Rigidbody2D>().velocity = direction * NUDGE_FORCE;
             GameManager.Instance.SpawnChicken();
         });
         Destroy(gameObject);
     }
 
     void OnCollisionEnter2D(Collision2D col) {
-        if (col.gameObject.tag == "Weapon") Die();
+        if (col.gameObject.tag == "Weapon") {
+            Die(-col.gameObject.GetComponent<AxeThrow>().GetDirection());
+        }
     }
 }
