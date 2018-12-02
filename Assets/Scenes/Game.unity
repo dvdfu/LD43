@@ -372,41 +372,6 @@ Prefab:
       propertyPath: m_Name
       value: Player1
       objectReference: {fileID: 0}
-    - target: {fileID: 114548834758912526, guid: 69ea3417706f345ce9b7af6a77d8de47,
-        type: 2}
-      propertyPath: movementBindings.left
-      value: 97
-      objectReference: {fileID: 0}
-    - target: {fileID: 114548834758912526, guid: 69ea3417706f345ce9b7af6a77d8de47,
-        type: 2}
-      propertyPath: movementBindings.right
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114548834758912526, guid: 69ea3417706f345ce9b7af6a77d8de47,
-        type: 2}
-      propertyPath: movementBindings.up
-      value: 119
-      objectReference: {fileID: 0}
-    - target: {fileID: 114548834758912526, guid: 69ea3417706f345ce9b7af6a77d8de47,
-        type: 2}
-      propertyPath: movementBindings.down
-      value: 115
-      objectReference: {fileID: 0}
-    - target: {fileID: 114548834758912526, guid: 69ea3417706f345ce9b7af6a77d8de47,
-        type: 2}
-      propertyPath: attackKey
-      value: 304
-      objectReference: {fileID: 0}
-    - target: {fileID: 114548834758912526, guid: 69ea3417706f345ce9b7af6a77d8de47,
-        type: 2}
-      propertyPath: id
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114548834758912526, guid: 69ea3417706f345ce9b7af6a77d8de47,
-        type: 2}
-      propertyPath: score
-      value: 
-      objectReference: {fileID: 1121740611}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69ea3417706f345ce9b7af6a77d8de47, type: 2}
   m_IsPrefabAsset: 0
@@ -1242,6 +1207,26 @@ Prefab:
       propertyPath: score
       value: 
       objectReference: {fileID: 1121740611}
+    - target: {fileID: 114548834758912526, guid: 69ea3417706f345ce9b7af6a77d8de47,
+        type: 2}
+      propertyPath: movementBindings.left
+      value: 276
+      objectReference: {fileID: 0}
+    - target: {fileID: 114548834758912526, guid: 69ea3417706f345ce9b7af6a77d8de47,
+        type: 2}
+      propertyPath: movementBindings.right
+      value: 275
+      objectReference: {fileID: 0}
+    - target: {fileID: 114548834758912526, guid: 69ea3417706f345ce9b7af6a77d8de47,
+        type: 2}
+      propertyPath: movementBindings.up
+      value: 273
+      objectReference: {fileID: 0}
+    - target: {fileID: 114548834758912526, guid: 69ea3417706f345ce9b7af6a77d8de47,
+        type: 2}
+      propertyPath: movementBindings.down
+      value: 274
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69ea3417706f345ce9b7af6a77d8de47, type: 2}
   m_IsPrefabAsset: 0

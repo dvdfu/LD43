@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour {
 
 	void Start() {
 		SpawnChicken();
+		SpawnChicken();
 	}
 
 	public void GetInstance() {

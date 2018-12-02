@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114507677634526042}
   - component: {fileID: 114047421471019196}
   - component: {fileID: 114972388214938090}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: AxeThrow
   m_TagString: Weapon
   m_Icon: {fileID: 0}
