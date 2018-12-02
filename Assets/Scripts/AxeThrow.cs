@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AxeThrow : MonoBehaviour {
     const float DURATION_SEC = 0.6f;
-    const float SPEED_START = 280;
+    const float SPEED_START = 320;
     const float SPEED_END = 0;
 
     [SerializeField] GameObject axePickupPrefab;
