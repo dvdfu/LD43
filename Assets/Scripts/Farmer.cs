@@ -5,6 +5,7 @@ using UnityEngine;
 public class Farmer : Player {
 	[SerializeField] GameObject axeThrowPrefab;
     [SerializeField] GameObject axeSwingPrefab;
+    [SerializeField] SpriteRenderer axeCarry;
     [SerializeField] GameObject stunEffect;
 
     bool hasAxe;
@@ -32,6 +33,7 @@ public class Farmer : Player {
             } else if (Input.GetKeyUp(playerData.attackBindings.attack)) {
                 speed = maxSpeed;
                 hasAxe = false;
+                axeCarry.enabled = false;
                 attackCooldownTimer.start();
                 GameObject axeThrow = Instantiate(axeThrowPrefab, transform.position, Quaternion.identity);
                 axeThrow.GetComponent<AxeThrow>().Throw(playerData.id, previousDirection);
@@ -66,6 +68,7 @@ public class Farmer : Player {
     void OnTriggerStay2D(Collider2D other) {
         if (other.gameObject.CompareTag("AxePickup") && !hasAxe) {
             hasAxe = true;
+            axeCarry.enabled = true;
             Destroy(other.gameObject);
         } else if (other.gameObject.CompareTag("Drumstick")) {
             Score.instance.CollectPoint(playerData.id);
