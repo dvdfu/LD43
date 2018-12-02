@@ -63,12 +63,11 @@ public class Farmer : Player {
 	}
 
     void OnTriggerEnter2D(Collider2D other) {
-        if (!hasAxe) {
-            AxePickup axePickup = other.gameObject.GetComponent<AxePickup>();
-            if (axePickup != null) {
-                hasAxe = true;
-                Destroy(other.gameObject);
-            }
+        if (other.gameObject.tag == "AxePickup" && !hasAxe) {
+            hasAxe = true;
+            Destroy(other.gameObject);
+        } else if (other.gameObject.tag == "Drumstick") {
+            Destroy(other.gameObject);
         }
     }
 }

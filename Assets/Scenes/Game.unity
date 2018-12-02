@@ -227,8 +227,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 313735cb20be74e819bfffd6adc2a59e, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &519420028
@@ -523,36 +522,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f00ce9809c38348908962eb056364596, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1543163670 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1203129002099634, guid: 313735cb20be74e819bfffd6adc2a59e,
-    type: 2}
-  m_PrefabInternal: {fileID: 108273403}
---- !u!114 &1543163671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1543163670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ddde0cbbe317464fad3f6536c2a0ead, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 1543163676}
-  frames:
-  - {fileID: 21300000, guid: 5132474540828448391b6c261bddc5dc, type: 3}
-  - {fileID: 21300002, guid: 5132474540828448391b6c261bddc5dc, type: 3}
-  - {fileID: 21300004, guid: 5132474540828448391b6c261bddc5dc, type: 3}
-  - {fileID: 21300006, guid: 5132474540828448391b6c261bddc5dc, type: 3}
-  frameDuration: 0.1
-  looping: 0
-  destroyOnComplete: 0
---- !u!212 &1543163676 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 212242433313424328, guid: 313735cb20be74e819bfffd6adc2a59e,
-    type: 2}
-  m_PrefabInternal: {fileID: 108273403}
 --- !u!1001 &1757326571
 Prefab:
   m_ObjectHideFlags: 0

@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114972388214938090}
   m_Layer: 9
   m_Name: AxeThrow
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   - {fileID: 21300006, guid: 5bec6afae14e249c999bfe0b31c71fa6, type: 3}
   frameDuration: 0.1
   looping: 1
-  autoStart: 1
+  destroyOnComplete: 0
 --- !u!114 &114507677634526042
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Chicken : Player {
 	[SerializeField] KeyCode attackKey = KeyCode.RightShift;
+    [SerializeField] GameObject drumstickPrefab;
 
     const float COOLDOWN_SEC = 0.05f;
     const float ROLL_DURATION_SEC = 0.3f;
@@ -44,5 +45,19 @@ public class Chicken : Player {
                 });
             }
         }
+    }
+
+    void Die() {
+        Instantiate(drumstickPrefab, transform.position, transform.rotation);
+        Respawn();
+    }
+
+    void Respawn() {
+        transform.position = Vector3.zero;
+        Debug.Log("bruv");
+    }
+
+    void OnCollisionEnter2D(Collision2D col) {
+        if (col.gameObject.tag == "Weapon") Die();
     }
 }
