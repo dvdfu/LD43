@@ -9,17 +9,34 @@ public class Chicken : MonoBehaviour {
     [SerializeField] GameObject poofPrefab;
 
     Rigidbody2D body;
+    Vector2 dir;
 
     void Start() {
         body = GetComponent<Rigidbody2D>();
+        dir = Vector2.zero;
     }
 
     void FixedUpdate() {
         // body.MovePosition(body.position + rollDirection * rollSpeed * Time.deltaTime);
+        body.AddForce(dir);
     }
 
     void Update() {
+        dir = moveAwayFromPlayers();
+    }
 
+    Vector2 moveAwayFromPlayers() {
+        List<GameObject> players = GameManager.Instance.GetPlayers();
+        Vector2 pos = transform.position;
+        Vector2 dir = Vector2.zero;
+
+        foreach (GameObject player in players) {
+            Vector2 pPos = player.transform.position;
+            float dist = Vector2.Distance(pos, pPos);
+            if (dist < 45) dir += (pos - pPos) * (6000f / dist / dist);
+        }
+
+        return dir;
     }
 
     void Die(Vector2 direction) {
