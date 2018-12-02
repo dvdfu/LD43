@@ -22,6 +22,7 @@ public class Chicken : MonoBehaviour {
     void Die() {
         Instantiate(drumstickPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
+        GameManager.Instance.SpawnChicken();
     }
 
     void OnCollisionEnter2D(Collision2D col) {
