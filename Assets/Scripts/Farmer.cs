@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Farmer : Player {
-    [SerializeField] int id;
+    [SerializeField] Score score;
+    [SerializeField] Score.PlayerID id;
     [SerializeField] float attackHoldTheshold = 0.25f;
     [SerializeField] float attackCooldown = 0.5f;
     [SerializeField] float axeSwingAttackDuration = 0.1f;
@@ -40,6 +41,7 @@ public class Farmer : Player {
             if (Input.GetKeyDown(attackKey)) attackHoldTimer.start();
             if (Input.GetKeyUp(attackKey)) {
                 if (attackHoldTimer.stop() < attackHoldTheshold) {
+                    score.CollectPoint(id);
                     GameObject axeSwing = Instantiate(axeSwingPrefab, transform.position, Quaternion.identity);
                     axeSwing.GetComponent<AxeSwing>().Swing(transform.position, previousDirection);
 

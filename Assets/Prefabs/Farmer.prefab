@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114548834758912526}
   m_Layer: 0
   m_Name: Farmer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,12 +90,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae44e880f771a43f6ab666bbc7910fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 80
   movementBindings:
     left: 276
     right: 275
     up: 273
     down: 274
+  id: 0
   attackHoldTheshold: 0.25
   attackCooldown: 0.5
   axeSwingAttackDuration: 0.1
@@ -149,7 +149,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 557554405
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: dbf568c237e6041cd87e846464b9a496, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
