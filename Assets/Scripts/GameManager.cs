@@ -22,12 +22,6 @@ public class GameManager : MonoBehaviour {
 		SpawnChicken();
 		SpawnChicken();
 		SpawnChicken();
-		SpawnChicken();
-		SpawnChicken();
-		SpawnChicken();
-		SpawnChicken();
-		SpawnChicken();
-		SpawnChicken();
 	}
 
 	public void SpawnChicken() {

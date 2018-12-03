@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Chicken : MonoBehaviour {
     const float NUDGE_FORCE = 50;
+    const float SWEAT_SPEED_THRESHOLD = 300;
 
     [SerializeField] GameObject drumstickPrefab;
     [SerializeField] GameObject poofPrefab;
+    [SerializeField] ParticleSystem sweatParticles;
 
     SpriteRenderer spriteRenderer;
     Rigidbody2D body;
@@ -16,6 +18,7 @@ public class Chicken : MonoBehaviour {
         body = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         dir = Vector2.zero;
+        sweatParticles.Stop();
     }
 
     void FixedUpdate() {
@@ -27,6 +30,16 @@ public class Chicken : MonoBehaviour {
         dir = moveAwayFromPlayers();
         if (body.velocity.x > 0.1f) spriteRenderer.flipX = false;
         if (body.velocity.x < -0.1f) spriteRenderer.flipX = true;
+
+        if (sweatParticles.isPlaying) {
+            if (body.velocity.sqrMagnitude < SWEAT_SPEED_THRESHOLD) {
+                sweatParticles.Stop();
+            }
+        } else {
+            if (body.velocity.sqrMagnitude > SWEAT_SPEED_THRESHOLD) {
+                sweatParticles.Play();
+            }
+        }
     }
 
     Vector2 moveAwayFromPlayers() {
@@ -48,15 +61,21 @@ public class Chicken : MonoBehaviour {
         GameObject poof = Instantiate(poofPrefab, position, Quaternion.identity);
         poof.GetComponent<SimpleAnimation>().PlayOnce(() => {
             GameObject drumstick = Instantiate(drumstickPrefab, position, Quaternion.identity);
-            drumstick.GetComponent<Rigidbody2D>().velocity = direction * NUDGE_FORCE;
+            drumstick.GetComponent<Rigidbody2D>().velocity = direction.normalized * NUDGE_FORCE;
             GameManager.Instance.SpawnChicken();
         });
         Destroy(gameObject);
     }
 
     void OnCollisionEnter2D(Collision2D col) {
-        if (col.gameObject.tag == "Weapon") {
+        if (col.gameObject.CompareTag("Weapon")) {
             Die(-col.gameObject.GetComponent<AxeThrow>().GetDirection());
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col) {
+        if (col.gameObject.CompareTag("Explosion")) {
+            Die(transform.position - col.transform.position);
         }
     }
 }

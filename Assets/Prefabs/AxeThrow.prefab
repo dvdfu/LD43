@@ -124,6 +124,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   axePickupPrefab: {fileID: 1211162032416606, guid: 72d119aea72434402bbab820e0d5c4b6,
     type: 2}
+  explosionPrefab: {fileID: 1459476610502122, guid: a7bbf3a3fd2a543d98fdcf36886235d3,
+    type: 2}
 --- !u!212 &212959032654174964
 SpriteRenderer:
   m_ObjectHideFlags: 1

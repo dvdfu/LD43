@@ -8,6 +8,7 @@ public class AxeThrow : MonoBehaviour {
     const float SPEED_END = 0;
 
     [SerializeField] GameObject axePickupPrefab;
+    [SerializeField] GameObject explosionPrefab;
 
     Score.PlayerID id;
     float speed;
@@ -46,6 +47,8 @@ public class AxeThrow : MonoBehaviour {
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
+        // GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        // explosion.GetComponent<SimpleAnimation>().PlayOnce(() => {});
         ContactPoint2D point = collision.GetContact(0);
         if (point.normal.y != 0) {
             direction.y *= -1;
